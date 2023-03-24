@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import { dehydrate, QueryClient } from '@tanstack/react-query'
 // import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -25,3 +26,20 @@ export default function Home() {
     </>
   )
 }
+
+
+
+// export async function getStaticProps() {
+//   const queryClient = new QueryClient()
+
+//   await queryClient.prefetchQuery({
+//     queryKey: ['posts', 10],
+//     queryFn: () => fetchPosts(10),
+//   })
+
+//   return {
+//     props: {
+//       dehydratedState: dehydrate(queryClient),
+//     },
+//   }
+// }
