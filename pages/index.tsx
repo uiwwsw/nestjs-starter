@@ -1,12 +1,22 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import { dehydrate, QueryClient } from '@tanstack/react-query'
+import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query'
+import { fetchPosts } from '@/hooks'
+import Table from '../components/Table'
+import Draggable from 'react-draggable';
+
 // import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const { isLoading, error, data } = useQuery<unknown, Error>(["posts"], () =>
+  fetchPosts(10)
+);
+
+  if (isLoading) return <div>Loading</div>;
+  if (error) return "An error has occurred: " + error?.message;
   return (
     <>
       <Head>
@@ -16,7 +26,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <p>dawdawdwad</p>
+        <Table/>
         <style jsx>{`
           p {
             color: red;
@@ -29,17 +39,29 @@ export default function Home() {
 
 
 
-// export async function getStaticProps() {
-//   const queryClient = new QueryClient()
+export async function getStaticProps() {
+  const queryClient = new QueryClient()
 
-//   await queryClient.prefetchQuery({
-//     queryKey: ['posts', 10],
-//     queryFn: () => fetchPosts(10),
-//   })
+  await queryClient.prefetchQuery({
+    queryKey: ['posts', 10],
+    queryFn: () => fetchPosts(10),
+  })
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  }
+}
+
+// export async function getServerSideProps() {
+//   const queryClient = new QueryClient();
+
+//   await queryClient.prefetchQuery("posts", () => fetchPosts(10));
 
 //   return {
 //     props: {
 //       dehydratedState: dehydrate(queryClient),
 //     },
-//   }
+//   };
 // }
