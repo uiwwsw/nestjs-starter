@@ -1,12 +1,10 @@
 // export enum LEVELS {
 //     '상', '중', '하'
 // }
-export enum LANGUAGE {
+export enum SKILL {
     html = 'html', 
     css = 'css', 
-    javascript = 'javascript'
-}
-export enum TOOLS {
+    javascript = 'javascript',
     typescript = 'typescript',
     scss = 'scss',
     svelte = 'svelte',
@@ -15,6 +13,20 @@ export enum TOOLS {
     aws = 'aws',
     jenkins = 'jenkins',
 }
+// export enum LANGUAGE {
+//     html = 'html', 
+//     css = 'css', 
+//     javascript = 'javascript'
+// }
+// export enum TOOLS {
+//     typescript = 'typescript',
+//     scss = 'scss',
+//     svelte = 'svelte',
+//     vue = 'vue',
+//     react = 'react',
+//     aws = 'aws',
+//     jenkins = 'jenkins',
+// }
 export enum LEVELS {
     최상='스스로 자신함',
     상='대규모 프로젝트를 유지할 수 있음',
@@ -65,9 +77,12 @@ export function getLevelScore(level: LEVELS) {
             return SCORES[5]
     }
 }
-export type LanguageSkill = {
-    [key in LANGUAGE]: LEVELS;
-}
-export type ToolSkill = {
-    [key in TOOLS]: LEVELS;
+// export type LanguageSkill = {
+//     [key in LANGUAGE]: LEVELS;
+// }
+// export type ToolSkill = {
+//     [key in TOOLS]: LEVELS;
+// }
+export type Skill = {
+    [key in SKILL]: LEVELS;
 }

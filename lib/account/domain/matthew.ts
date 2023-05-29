@@ -1,8 +1,9 @@
-import { LanguageSkill, LEVELS, ToolSkill } from "@/lib/skill/domain";
+import { LEVELS, Skill } from "@/lib/skill/domain";
 import { AccountTypes, SEXTYPES } from "./account";
 export interface ProgrammerTypes extends AccountTypes {
-    languageSkill: LanguageSkill;
-    toolSkill: ToolSkill;
+    // languageSkill: LanguageSkill;
+    // toolSkill: ToolSkill;
+    skill: Skill
 }
 
 export class Matthew implements ProgrammerTypes {
@@ -12,12 +13,10 @@ export class Matthew implements ProgrammerTypes {
     hairy = 1;
     handsome = 1;
     money = 100;
-    languageSkill = {
+    skill = {
         html: LEVELS.최상,
         css: LEVELS.최상,
         javascript: LEVELS.상,
-    };
-    toolSkill = {
         typescript:LEVELS.상,
         scss:LEVELS.최상,
         svelte:LEVELS.상,
