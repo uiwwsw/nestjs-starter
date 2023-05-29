@@ -1,6 +1,7 @@
 export enum SEXTYPES {
     남,여
 }
+export type EXXX = '남' | '여'
 export interface AccountTypes {
     name: string;
     born?: number;

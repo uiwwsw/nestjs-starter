@@ -1,5 +1,5 @@
-import { LANGUAGE, LEVELS, TOOLS } from "@/lib/skill/domain";
-import { AccountTypes, ProgrammerTypes } from "../domain";
+import { LANGUAGE, LEVELS, TOOLS } from "@/lib/skill";
+import { ProgrammerTypes } from "../domain";
 
 export function postStudy() {
     return (account: ProgrammerTypes, skill: LANGUAGE | TOOLS, level: LEVELS) => {
