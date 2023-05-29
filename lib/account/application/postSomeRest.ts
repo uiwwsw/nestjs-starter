@@ -6,7 +6,7 @@ export function postSomeRest() {
     return (account: ProgrammerTypes, moneyForDay: number, duration: number) => {
         account.money = (account.money ?? 0) - (moneyForDay * duration);
         if (duration > 30) {
-            Object.entries(account.skill).map(([key,value]) => {
+            Object.entries(account.skill).forEach(([key,value]) => {
                 const score = getLevelScore(value)
                 if (score <= pointLevel) {
                     const skill = key as SKILL
