@@ -1,12 +1,12 @@
 import { Matthew } from "@/lib"
 import { postStudy } from "@/lib/account/application/postStudy"
-import { LANGUAGE, LEVELS } from "@/lib/skill/domain";
+import {  LEVELS, SKILL } from "@/lib/skill/domain";
 
 export default function Home() {
   const matthew = new Matthew()
   const usePostStudy = postStudy();
-  usePostStudy(matthew, LANGUAGE.css, LEVELS.못함);
-  console.log(matthew)
+  usePostStudy(matthew, SKILL.css, 5);
+  console.log(matthew.skillDescription)
   return (
     <main>
       dawdjlkawjdlkawd

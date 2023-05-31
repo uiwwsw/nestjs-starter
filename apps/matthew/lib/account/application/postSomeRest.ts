@@ -7,11 +7,9 @@ export function postSomeRest() {
         account.money = (account.money ?? 0) - (moneyForDay * duration);
         if (duration > 30) {
             Object.entries(account.skill).forEach(([key,value]) => {
-                const score = getLevelScore(value)
-                if (score <= pointLevel) {
+                if (value <= pointLevel) {
                     const skill = key as SKILL
-                    const level = account.skill[skill]
-                    account.skill[skill] = changeLevel(level, score - Math.floor(duration / 20))
+                    account.skill[skill] -= Math.floor(duration / 20)
                 }
             })
         }

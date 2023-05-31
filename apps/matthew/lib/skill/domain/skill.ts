@@ -84,5 +84,5 @@ export function getLevelScore(level: LEVELS) {
 //     [key in TOOLS]: LEVELS;
 // }
 export type Skill = {
-    [key in SKILL]: LEVELS;
+    [key in SKILL]: number;
 }

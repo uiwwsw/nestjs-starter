@@ -1,29 +1,28 @@
 {
-  "name": "nextjs-starter",
-  "version": "0.1.0",
-  "private": true,
+  "name": "uiwwsw",
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/*",
+    "@packages/*"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "format": "prettier --write",
+    "prepare": "husky install"
+  },
+  "packageManager": "pnpm@8.3.1",
+  "author": "uiwwsw",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
+    "husky": "^8.0.0"
+  },
+  "lint-staged": {
+    "*.(ts|tsx)": [
+      "pnpm format"
+    ]
   },
   "dependencies": {
-    "@types/node": "20.2.5",
-    "@types/react": "18.2.7",
-    "@types/react-dom": "18.2.4",
-    "autoprefixer": "10.4.14",
-    "eslint": "8.41.0",
-    "eslint-config-next": "13.4.4",
-    "next": "13.4.4",
-    "postcss": "8.4.24",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "styled-components": "^5.3.11",
-    "tailwindcss": "3.3.2",
-    "typescript": "5.0.4"
-  },
-  "devDependencies": {
-    "@types/styled-components": "^5.1.26"
+    "lint-staged": "^13.2.2"
   }
 }
