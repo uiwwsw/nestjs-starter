@@ -1,5 +1,5 @@
 'use client';
-import React, { HTMLInputTypeAttribute } from "react";
+import React, { InputHTMLAttributes } from "react";
 import styled from "styled-components";
 import {$gutter, $padding, $radius} from '@packages/common/ui-variables'
 const StyledLabel = styled.label`
@@ -19,11 +19,9 @@ const StyledLabel = styled.label`
     outline: none;
   }
 `;
-interface InputProps {
-  type?: HTMLInputTypeAttribute;
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  children?: string;
   label?: string;
-  id?:string;
-  required?: true;
 }
 
 /**
@@ -33,12 +31,13 @@ interface InputProps {
   label,
   id,
   type,
+  children,
   ...props
 }: InputProps) => {
   return (
     <StyledLabel htmlFor={id}>
       {label && <span>{label}</span>}
-      <input id={id} type={type ?? 'text'} {...props} />
+      <input id={id} type={type ?? 'text'} value={children} {...props} />
     </StyledLabel>
   );
 };

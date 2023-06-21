@@ -1,9 +1,8 @@
 'use client';
-import React, { FormEvent } from "react";
+import React, {FormHTMLAttributes} from "react";
 import styled from "styled-components";
 const StyledForm = styled.form``;
-interface FormProps {
-  onSubmit: (e:FormEvent) => unknown;
+interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
   children?: React.ReactNode
 }
 

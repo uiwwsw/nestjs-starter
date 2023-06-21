@@ -1,9 +1,11 @@
+import { getUser } from "@/utils/getUser";
 
-export default function Home() {
-  
+export default async function Home() {
+  // console.log('12312312');
+  const t = await getUser();
   return (
     <main>
-      dawdjlkawjdlkawd
+      {t?.data?.name}
     </main>
   )
 }
